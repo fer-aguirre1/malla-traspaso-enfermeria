@@ -3,25 +3,92 @@
 <head>
   <meta charset="UTF-8">
   <title>Malla Interactiva Enfermería</title>
-  <link rel="stylesheet" href="estilos.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff0f5;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+      color: #880e4f;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+
+    .malla {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .semestre {
+      background: #fce4ec;
+      border: 2px solid #f8bbd0;
+      border-radius: 12px;
+      padding: 15px;
+      width: 260px;
+    }
+
+    .semestre h2 {
+      margin-top: 0;
+      font-size: 18px;
+      color: #ad1457;
+    }
+
+    .ramo {
+      display: block;
+      width: 100%;
+      margin: 8px 0;
+      padding: 12px 10px;
+      font-size: 14px;
+      font-weight: bold;
+      background: #f8bbd0;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      color: #880e4f;
+      transition: 0.2s ease;
+    }
+
+    .ramo span {
+      display: block;
+      font-size: 12px;
+      font-weight: normal;
+      color: #6a1b9a;
+    }
+
+    .ramo.locked {
+      background: #fce4ec !important;
+      color: #c2185b !important;
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+
+    .ramo.approved {
+      background: #d81b60 !important;
+      color: white !important;
+    }
+  </style>
 </head>
 <body>
   <h1>Malla Interactiva de Enfermería</h1>
   <div class="malla">
 
-    <!-- SEMESTRE 1 -->
-    <div class="semestre">
-      <h2>1° Semestre</h2>
+    <!-- Semestre 1 -->
+    <div class="semestre"><h2>1° Semestre</h2>
       <button class="ramo" data-id="MAT1000">Precálculo<br><span>10 créditos</span></button>
       <button class="ramo" data-id="SOL100">Paradigmas Sociológicos<br><span>10 créditos</span></button>
-      <button class="ramo" data-id="EAE105A">Intro a la Economía<br><span>10 créditos</span></button>
+      <button class="ramo" data-id="EAE105A">Introducción a la Economía<br><span>10 créditos</span></button>
       <button class="ramo" data-id="PSI1101">Procesos Psicológicos Básicos<br><span>10 créditos</span></button>
       <button class="ramo" data-id="AFG1">Ecología integral y Sustentabilidad<br><span>10 créditos</span></button>
     </div>
 
-    <!-- SEMESTRE 2 -->
-    <div class="semestre">
-      <h2>2° Semestre</h2>
+    <!-- Semestre 2 -->
+    <div class="semestre"><h2>2° Semestre</h2>
       <button class="ramo" data-id="OPT2">Mínimo u Optativo<br><span>5 créditos</span></button>
       <button class="ramo" data-id="SOL312">Antropología Convivencia Social<br><span>10 créditos</span></button>
       <button class="ramo" data-id="ENF1112">Naturaleza de la Enfermería<br><span>5 créditos</span></button>
@@ -30,88 +97,105 @@
       <button class="ramo" data-id="FILOS">Filosofía ¿Para Qué?<br><span>10 créditos</span></button>
     </div>
 
-    <!-- SEMESTRE 3 -->
-    <div class="semestre">
-      <h2>3° Semestre</h2>
-      <button class="ramo" data-id="HISTMIN">Mínimo Disciplinario Historia<br><span>10 créditos</span></button>
-      <button class="ramo" data-id="ENF1127">Salud, Cultura y Sociedad Global<br><span>10 créditos</span></button>
+    <!-- Semestre 3 -->
+    <div class="semestre"><h2>3° Semestre</h2>
+      <button class="ramo" data-id="HISTMIN">Mínimo Historia<br><span>10 créditos</span></button>
+      <button class="ramo" data-id="ENF1127">Salud, Cultura y Sociedad<br><span>10 créditos</span></button>
       <button class="ramo" data-id="ENF1124">Psicología<br><span>10 créditos</span></button>
-      <button class="ramo" data-id="MED841">Anatomía General y del Desarrollo<br><span>10 créditos</span></button>
+      <button class="ramo" data-id="MED841">Anatomía General<br><span>10 créditos</span></button>
       <button class="ramo" data-id="TEO">Teológico<br><span>10 créditos</span></button>
     </div>
 
-    <!-- SEMESTRE 4 -->
-    <div class="semestre">
-      <h2>4° Semestre</h2>
+    <!-- Semestre 4 -->
+    <div class="semestre"><h2>4° Semestre</h2>
       <button class="ramo" data-id="ENF1205">Cuidados de Enfermería 1<br><span>10 créditos</span></button>
       <button class="ramo" data-id="ENF1212">Salud Pública<br><span>10 créditos</span></button>
       <button class="ramo" data-id="BIO136E">Bioquímica Celular<br><span>10 créditos</span></button>
       <button class="ramo" data-id="EYP1087">Bioestadística<br><span>10 créditos</span></button>
       <button class="ramo" data-id="ART">Artes<br><span>10 créditos</span></button>
     </div>
-
-    <!-- SEMESTRE 5 -->
-    <div class="semestre">
-      <h2>5° Semestre</h2>
-      <button class="ramo" data-id="BIO146E">Microbiología e Infectología Clínica<br><span>10 créditos</span></button>
+    <!-- Semestre 5 -->
+    <div class="semestre"><h2>5° Semestre</h2>
+      <button class="ramo" data-id="BIO146E">Microbiología<br><span>10 créditos</span></button>
       <button class="ramo" data-id="BIO126E">Fisiología<br><span>10 créditos</span></button>
-      <button class="ramo" data-id="ENF2112">Cuidados de Enfermería de la Persona y Familia<br><span>15 créditos</span></button>
+      <button class="ramo" data-id="ENF2112">Cuidados Persona y Familia<br><span>15 créditos</span></button>
       <button class="ramo" data-id="ENF2115">Educación para la Salud<br><span>5 créditos</span></button>
-      <button class="ramo" data-id="ENF1133">Metodologías de la Investigación<br><span>5 créditos</span></button>
+      <button class="ramo" data-id="ENF1133">Metodologías Investigación<br><span>5 créditos</span></button>
     </div>
 
-    <!-- SEMESTRE 6 -->
-    <div class="semestre">
-      <h2>6° Semestre</h2>
+    <!-- Semestre 6 -->
+    <div class="semestre"><h2>6° Semestre</h2>
       <button class="ramo" data-id="MED839">Farmacología Clínica<br><span>10 créditos</span></button>
-      <button class="ramo" data-id="MED840">Fisiopatología General y de Sistemas<br><span>10 créditos</span></button>
-      <button class="ramo" data-id="ENF2208">Cuidados de Enfermería 2<br><span>15 créditos</span></button>
+      <button class="ramo" data-id="MED840">Fisiopatología<br><span>10 créditos</span></button>
+      <button class="ramo" data-id="ENF2208">Cuidados Enfermería 2<br><span>15 créditos</span></button>
       <button class="ramo" data-id="ENF2215">Informática en Salud 1<br><span>5 créditos</span></button>
       <button class="ramo" data-id="ENF2220">Gestión y Liderazgo 1<br><span>5 créditos</span></button>
     </div>
 
-    <!-- SEMESTRE 7 -->
-    <div class="semestre">
-      <h2>7° Semestre</h2>
-      <button class="ramo" data-id="ENF2315">Cuidados de Enfermería del Adulto y Persona Mayor<br><span>20 créditos</span></button>
-      <button class="ramo" data-id="ENF2305">Dimensión Interpersonal del Cuidado de Enfermería<br><span>10 créditos</span></button>
+    <!-- Semestre 7 -->
+    <div class="semestre"><h2>7° Semestre</h2>
+      <button class="ramo" data-id="ENF2315">Cuidados Adulto Mayor<br><span>20 créditos</span></button>
+      <button class="ramo" data-id="ENF2305">Dimensión Interpersonal<br><span>10 créditos</span></button>
     </div>
 
-    <!-- SEMESTRE 8 -->
-    <div class="semestre">
-      <h2>8° Semestre</h2>
-      <button class="ramo" data-id="ENF2325">Cuidados de Enfermería de la Infancia y Adolescencia<br><span>20 créditos</span></button>
-      <button class="ramo" data-id="ENF2322">Fundamentos Éticos del Profesional<br><span>10 créditos</span></button>
+    <!-- Semestre 8 -->
+    <div class="semestre"><h2>8° Semestre</h2>
+      <button class="ramo" data-id="ENF2325">Infancia y Adolescencia<br><span>20 créditos</span></button>
+      <button class="ramo" data-id="ENF2322">Ética Profesional<br><span>10 créditos</span></button>
       <button class="ramo" data-id="OPT8">Optativo de Profundización<br><span>10 créditos</span></button>
     </div>
 
-    <!-- SEMESTRE 9 -->
-    <div class="semestre">
-      <h2>9° Semestre</h2>
-      <button class="ramo" data-id="ENF2410">Enfermería en Salud Familiar y Comunitaria<br><span>20 créditos</span></button>
-      <button class="ramo" data-id="ENF2416">Cuidados de Enfermería en Salud Mental<br><span>10 créditos</span></button>
+    <!-- Semestre 9 -->
+    <div class="semestre"><h2>9° Semestre</h2>
+      <button class="ramo" data-id="ENF2410">Salud Familiar<br><span>20 créditos</span></button>
+      <button class="ramo" data-id="ENF2416">Salud Mental<br><span>10 créditos</span></button>
       <button class="ramo" data-id="ENF2408">Investigación<br><span>10 créditos</span></button>
     </div>
 
-    <!-- SEMESTRE 10 -->
-    <div class="semestre">
-      <h2>10° Semestre</h2>
-      <button class="ramo" data-id="ENF2420">Cuidados de Enfermería en Personas con Condiciones Crónicas de Salud<br><span>20 créditos</span></button>
+    <!-- Semestre 10 -->
+    <div class="semestre"><h2>10° Semestre</h2>
+      <button class="ramo" data-id="ENF2420">Condiciones Crónicas<br><span>20 créditos</span></button>
       <button class="ramo" data-id="ENF2428">Informática en Salud 2<br><span>5 créditos</span></button>
       <button class="ramo" data-id="ENF2425">Gestión y Liderazgo 2<br><span>10 créditos</span></button>
-      <button class="ramo" data-id="OPT10">Optativo de Profundización<br><span>10 créditos</span></button>
+      <button class="ramo" data-id="OPT10">Optativo Profundización<br><span>10 créditos</span></button>
     </div>
 
-    <!-- SEMESTRE 11 -->
-    <div class="semestre">
-      <h2>11° Semestre</h2>
-      <button class="ramo" data-id="ENF2510">Internado de Enfermería Hospitalario<br><span>25 créditos</span></button>
-      <button class="ramo" data-id="ENF2518">Internado de Enfermería en Urgencias<br><span>25 créditos</span></button>
+    <!-- Semestre 11 -->
+    <div class="semestre"><h2>11° Semestre</h2>
+      <button class="ramo" data-id="ENF2510">Internado Hospitalario<br><span>25 créditos</span></button>
+      <button class="ramo" data-id="ENF2518">Internado Urgencias<br><span>25 créditos</span></button>
     </div>
 
-    <!-- SEMESTRE 12 -->
-    <div class="semestre">
-      <h2>12° Semestre</h2>
-      <button class="ramo" data-id="ENF2515">Internado de Enfermería Ambulatorio<br><span>25 créditos</span></button>
-      <button class="ramo" data-id="ENF2530">Integrado de Enfermería Electivo<br><span>25 créditos</span></button>
+    <!-- Semestre 12 -->
+    <div class="semestre"><h2>12° Semestre</h2>
+      <button class="ramo" data-id="ENF2515">Internado Ambulatorio<br><span>25 créditos</span></button>
+      <button class="ramo" data-id="ENF2530">Integrado Electivo<br><span>25 créditos</span></button>
     </div>
+
+  </div>
+
+  <script>
+    const estado = JSON.parse(localStorage.getItem("estadoMalla") || "{}");
+
+    function actualizar() {
+      document.querySelectorAll(".ramo").forEach(btn => {
+        const id = btn.dataset.id;
+
+        if (estado[id]) {
+          btn.classList.add("approved");
+        }
+
+        btn.addEventListener("click", () => {
+          if (btn.classList.contains("locked")) return;
+
+          btn.classList.toggle("approved");
+          estado[id] = btn.classList.contains("approved");
+          localStorage.setItem("estadoMalla", JSON.stringify(estado));
+        });
+      });
+    }
+
+    actualizar();
+  </script>
+</body>
+</html>
