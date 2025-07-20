@@ -1,6 +1,5 @@
-// Requisitos por ramo (IDs deben coincidir con los del HTML)
+// Requisitos por ramo
 const requisitos = {
-  // ENF1112 se abre libremente, pero otros dependen de ella
   "BIO136E": ["QIM100F"],
   "ENF1205": ["MED841"],
   "ENF1212": ["ENF1112"],
@@ -26,7 +25,7 @@ const requisitos = {
   "ENF2510": ["ENF2410", "ENF2416", "ENF2408", "ENF2420", "ENF2425"],
   "ENF2518": ["ENF2410", "ENF2416", "ENF2408", "ENF2420", "ENF2425"],
   "ENF2515": ["ENF2410", "ENF2416", "ENF2408", "ENF2420", "ENF2425"],
-  "ENF2530": ["ENF2410", "ENF2416", "ENF2408", "ENF2420", "ENF2425"],
+  "ENF2530": ["ENF2410", "ENF2416", "ENF2408", "ENF2420", "ENF2425"]
 };
 
 // Créditos por ramo
@@ -43,25 +42,28 @@ const creditos = {
   "ENF2510": 25, "ENF2518": 25, "ENF2515": 25, "ENF2530": 25
 };
 
+// Cargar progreso guardado
 const estado = JSON.parse(localStorage.getItem("estadoMalla") || "{}");
 
+// Calcular créditos aprobados
 function calcularCreditos() {
   return Object.entries(estado)
     .filter(([_, aprobado]) => aprobado)
     .reduce((acc, [id]) => acc + (creditos[id] || 0), 0);
 }
 
+// Verificar si un ramo se puede desbloquear
 function puedeDesbloquear(id) {
   const reqs = requisitos[id];
+  const requiere200 = ["BIO146E", "BIO126E", "ENF2112", "ENF2115", "ENF1133"].includes(id);
+
+  if (requiere200 && calcularCreditos() < 200) return false;
   if (!reqs) return true;
 
-  const tieneCreditos = (["BIO146E", "BIO126E", "ENF2112", "ENF2115", "ENF1133"].includes(id))
-    ? calcularCreditos() >= 200
-    : true;
-
-  return reqs.every(r => estado[r]) && tieneCreditos;
+  return reqs.every(r => estado[r]);
 }
 
+// Actualiza el estado visual de los botones
 function actualizarBotones() {
   document.querySelectorAll(".ramo").forEach(btn => {
     const id = btn.dataset.id;
@@ -77,6 +79,7 @@ function actualizarBotones() {
   });
 }
 
+// Inicialización
 document.querySelectorAll(".ramo").forEach(btn => {
   const id = btn.dataset.id;
 
