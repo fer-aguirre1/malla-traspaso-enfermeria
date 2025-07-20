@@ -56,14 +56,13 @@ h1 {
 }
 
 .ramo.locked {
-  background: #fce4ec;
-  color: #c2185b;
+  background: #fce4ec !important;
+  color: #c2185b !important;
   cursor: not-allowed;
   opacity: 0.6;
 }
 
 .ramo.approved {
-  background: #d81b60;
-  color: white;
+  background: #d81b60 !important;
+  color: white !important;
 }
-
